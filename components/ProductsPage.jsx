@@ -2,12 +2,10 @@
 import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/client"; // Ensure correct import
 
-const PRODUCT_QUERY = `*[_type == "product" && !(_id in path("drafts.*"))]{
+const PRODUCT_QUERY = `*[_type == "officefurniture" && !(_id in path("drafts.*"))]{
   _id, 
   name, 
   description, 
-  price, 
-  price_id, 
   images[]{asset -> {url}}, 
   categories[]-> {_id,name}
 }`;
@@ -19,48 +17,60 @@ export default async function ProductsPage() {
     console.log("Fetched products:", products);
 
     // Filter out null products
-    const validProducts = products.filter((product) => product !== null);
-    validProducts.forEach((product) => {
+    const validProducts = products.filter(product => product !== null);
+    validProducts.forEach(product => {
       console.log("Product categories:", product.name);
     });
 
     return (
       <>
-        <main className="flex flex-col items-center bg-gray-100 min-h-screen p-10 gap-12">
-          <h1 className="text-5xl font-extrabold tracking-tight text-gray-800 mb-8">
-            Products
-          </h1>
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <a href="/Cart">Go to Cart</a>
-          </button>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {validProducts.map((product) => (
-              <li
-                key={product._id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
-              >
-                <Link href={`/product/${product.slug}`} className="block">
-                  {product.images && product.images.length > 0 && (
-                    <img
-                      src={product.images[0].asset.url}
-                      alt={product.name}
-                      className="w-full h-64 object-cover"
-                    />
-                  )}
-                </Link>
-                <div className="p-4">
-                  <h2 className="text-2xl font-bold mb-2 text-gray-800">
-                    {product.name}
-                  </h2>
-                  <p className="text-gray-500 mb-4">{product.description}</p>
-                  <p className="text-lg font-semibold text-[#fe3939]">
-                    ${product.price}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </main>
+       <div className="mx-auto max-w-2xl pt-14 sm:pt-10 lg:pt-16 pb-8 mt-4">
+         
+         <div className="text-center">
+           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7CC9B1] to-[#069376] sm:text-6xl">
+           officefurniture
+           </h1>
+           <p className="mt-6 text-lg leading-8 text-gray-600 italic">
+           We provides top-quality, durable institutional furniture designed for comfort, functionality, and modern aesthetics, ensuring optimal learning environments.
+           </p>
+           <div className="mt-10 flex items-center justify-center gap-x-6"></div>
+         </div>
+       </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 items-center">
+      {validProducts.map((product) => (
+        <div key={product.slug} className="max-w-md mx-auto rounded-md overflow-hidden  transition-transform transform hover:scale-105">
+          <div className="relative">
+            <Link href={`/institutional/${product.slug}`} className="block">
+              <div className="min-h-[100px] min-w-[400px] border-red-900">
+                {product.images && product.images.length > 0 && (
+                  <img
+                    src={product.images[0].asset.url}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+            </Link>
+            {/* <div className="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium">
+              SALE
+            </div> */}
+          </div>
+          <div className="p-4">
+            <h3 className="text-lg font-medium mb-2">{product.name}</h3>
+            {/* <p className="text-gray-600 text-sm mb-4">
+              {product.description}
+            </p> */}
+            {/* Uncomment the following section if you want to add a price and a Buy Now button */}
+            {/* <div className="flex items-center justify-between">
+              <span className="font-bold text-lg">$19.99</span>
+              <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                Buy Now
+              </button>
+            </div> */}
+          </div>
+        </div>
+      ))}
+    </div>
       </>
     );
   } catch (error) {

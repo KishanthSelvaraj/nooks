@@ -7,6 +7,8 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import About from "@/components/About";
 import Gallery from "@/components/Gallery";
+// import Gal2 from "@/components/Gal2";
+
 
 export default function Home() {
   return (
@@ -15,9 +17,9 @@ export default function Home() {
     <About/>
     <Features_2/>
     <Gallery/>
+    {/* <Gal2/> */}
     {/* <Features/> */}
     <Contact/>
-    {/* <Footer/> */}
     </div>
   );
 }

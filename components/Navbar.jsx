@@ -1,123 +1,120 @@
-"use client";
-import React, { useState } from "react";
-import { IoIosClose, IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { MdEmail } from "react-icons/md";
-
-import Image from "next/image";
-import Link from "next/link";
-import logo from '@/public/logo.jpg';
-
+"use client"
+import { useState } from "react";
+import { MdMenu, MdClose } from "react-icons/md"; 
 const NavBar = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [showProductsDropdown, setShowProductsDropdown] = useState(false);
-  const [showMobileDropdown, setShowMobileDropdown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setActiveDropdown(null); 
   };
 
-  const closeProductsDropdown = () => {
-    setShowProductsDropdown(false);
-  };
-
-  const closeMobileDropdown = () => {
-    setShowMobileDropdown(false);
-  };
-
-  const toggleProductsDropdown = () => {
-    setShowProductsDropdown(!showProductsDropdown);
-  };
-
-  const toggleMobileDropdown = () => {
-    setShowMobileDropdown(!showMobileDropdown);
-  };
-
-  const handleProductsMouseEnter = () => {
-    setShowProductsDropdown(true);
-  };
-
-  const handleProductsMouseLeave = () => {
-    setShowProductsDropdown(false);
+  const toggleDropdown = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index);
   };
 
   return (
-    <div>
-      {/* Desktop Navigation    bg-transparent */}  
-      <div className="flex bg-white navbar w-full p-5 justify-between items-center z-50 ">
-      <div className="md:w-32  w-24 h-auto lg:mx-10 ">
-          <Image src={logo} alt="Logo"/>
+    
+    <div className="fixed top-0 w-full z-50 navigation-bar">
+      <nav className="flex items-center justify-between flex-wrap bg-white py-md-2 py-4 px-14">
+        <div className="md:flex items-center flex-shrink-0 text-white mr-6 justify-center h-full text-center logo mt-2   ">
+            <img className="md:w-32 w-24 h-auto " src="logo.jpg" alt="" />
+          
         </div>
-       
-        <div className="menu  w-full hidden md:flex justify-end gap-7 ml-5">
-          <ul className="flex gap-7 font-medium">
-            <li className="cursor-pointer">
-              <Link href="/" className="hover:text-[#34b69c]">Home</Link>
-            </li>
-            <li className="cursor-pointer">
-              <Link href="/products" className="hover:text-[#34b69c]">Products</Link>
-            </li>
-            {/* <li className="cursor-pointer">
-              <Link href="/office" className="hover:text-[#34b69c]">Office</Link>
-            </li> */}
-            <li className="cursor-pointer">
-              <Link href="/contact" className="hover:text-[#34b69c]">Contact</Link>
-            </li>
-          </ul>
-        </div>
-        
-       <div className="flex items-center gap-3 mr-5">
-      
-        <div className="menu md:hidden">
-          <button onClick={toggleSidebar} className="text-xl font-bold  cursor-pointer">
-            ☰
+        <div className="block lg:hidden "> 
+          <button
+            onClick={toggleMenu}
+            className="ml-[100%] toogle-button flex items-center px-3 py-2  rounded text-black border-black hover:text-gray-500 hover:border-gray-500"
+          >
+            {isMenuOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
           </button>
         </div>
-       </div>
-      </div>
+        <div
+          className={`w-full ${
+            isMenuOpen ? "block" : "hidden"
+          } lg:block  lg:items-center lg:w-auto menu-links`}
+        >
+          <div className="text-sm  nav-links lg:flex-grow lg:flex-none lg:flex-row flex flex-col lg:gap-3  mt-[-1%]">
+            <a
+              href="/"
+              className=" l  menu-link block mt-4 lg:inline-block lg:mt-0   lg:ml-5  text-black hover:text-[#069376] font-bold text-md "
+            >
+              Home
+            </a>
+            {/* <div className="lg:relative inline-block text-left">
+              <button
+                onClick={() => toggleDropdown(0)}
+                className=" l menu-link block mt-4 lg:inline-block lg:mt-0 text-black hover:text-[#069376] font-bold text-md  lg:ml-5"
+              >
+                Produ
+              </button>
+              {activeDropdown === 0 && (
+                <div className="z-50 origin-top-right lg:absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div
+                    className="py-1"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
+                  >
+                    <a
+                      href="/institutional"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      role="menuitem"
+                    >
+                     Institutional Furniture
+                    </a>
+                    <a
+                      href="/office"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      role="menuitem"
+                    >
+                      Office Furniture
+                    </a>
+                   
+                  </div>
+                </div>
+              )}
+            </div> */}
+
+<div className="lg:relative inline-block text-left">
+              <a
+               href="/institutional"
+                onClick={() => toggleDropdown(2)}
+                className=" l menu-link block mt-4 lg:inline-block lg:mt-0 text-black hover:text-[#069376] font-bold text-md  lg:ml-5"
+              >
+              Institutional
+              </a>
+            </div>
+            <div className="lg:relative inline-block text-left">
+              <a
+               href="/office"
+                onClick={() => toggleDropdown(2)}
+                className=" l menu-link block mt-4 lg:inline-block lg:mt-0 text-black hover:text-[#069376] font-bold text-md  lg:ml-5"
+              >
+              Office
+              </a>
+            </div>
 
 
+            <div className="lg:relative inline-block text-left">
+              <a
+               href="/contact"
+                onClick={() => toggleDropdown(2)}
+                className=" l menu-link block mt-4 lg:inline-block lg:mt-0 text-black hover:text-[#069376] font-bold text-md  lg:ml-5"
+              >
+              Contact
+              </a>
+            </div>
+
+       
 
 
-      {/* Mobile Sidebar */}
-      <div
-        className={`text-center fixed top-0 left-0 bg-[#1a1a1a] text-white w-full h-full z-50 p-4 md:hidden transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out`}
-      >
-        <div className="flex items-start mb-4 justify-end">
-          <div
-            className="text-4xl font-bold cursor-pointer"
-            onClick={toggleSidebar}
-          >
-            <IoIosClose />
+          
+          
           </div>
         </div>
-        <ul className="flex flex-col gap-7">
-          <li
-            className="cursor-pointer  pb-2  px-2 font-medium"
-            onClick={toggleSidebar}
-          >
-            <Link href="/" >Home</Link>
-          </li>
-          <li
-            className="cursor-pointer  pb-2  px-2 font-medium"
-            onClick={toggleSidebar}
-          >
-            <Link href="/about" >About Us</Link>
-          </li>
-          <li
-            className="cursor-pointer  pb-2  px-2 font-medium"
-            onClick={toggleSidebar}
-          >
-            <Link href="/products" >Product</Link>
-          </li>
-          <li
-            className="cursor-pointer  pb-2  px-2 font-medium"
-            onClick={toggleSidebar}
-          >
-            <Link href="/contact" >Contact</Link>
-          </li>
-        </ul>
-      </div>
+      </nav>
     </div>
   );
 };

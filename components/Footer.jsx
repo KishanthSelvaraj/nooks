@@ -72,8 +72,11 @@ const Footer = () => {
           <li><a href="/"
               class="text-lg font-normal text-gray-800 transition-all duration-300 hover:text-[#069376] focus-within:text-[#069376] focus-within:outline-0">Home</a>
           </li>
-          <li><a href="/products"
-              class="text-lg font-normal text-gray-800 transition-all duration-300 hover:text-[#069376] focus-within:text-[#069376] focus-within:outline-0">Products</a>
+          <li><a href="/institutional"
+              class="text-lg font-normal text-gray-800 transition-all duration-300 hover:text-[#069376] focus-within:text-[#069376] focus-within:outline-0">Institutional</a>
+          </li>
+          <li><a href="/office"
+              class="text-lg font-normal text-gray-800 transition-all duration-300 hover:text-[#069376] focus-within:text-[#069376] focus-within:outline-0">Office</a>
           </li>
           <li><a href="/contact"
               class="text-lg font-normal text-gray-800 transition-all duration-300 hover:text-[#069376] focus-within:text-[#069376] focus-within:outline-0">Contact</a>
