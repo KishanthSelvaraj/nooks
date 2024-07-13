@@ -19,7 +19,7 @@ const NavBar = () => {
     <div className="fixed top-0 w-full z-50 navigation-bar">
       <nav className="flex items-center justify-between flex-wrap bg-white py-md-2 py-4 px-14">
         <div className="md:flex items-center flex-shrink-0 text-white mr-6 justify-center h-full text-center logo mt-2   ">
-            <img className="md:w-32 w-24 h-auto " src="logo.jpg" alt="" />
+            <img className="md:w-32 w-24 h-auto " src="/logo.jpg" alt="logo image" />
           
         </div>
         <div className="block lg:hidden "> 

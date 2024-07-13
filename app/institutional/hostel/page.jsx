@@ -27,10 +27,10 @@ export default async function ProductsPage() {
     });
 
     return (
-      <>
+      <section className="bg-white">
         {/* new */}
         <NavBar/>
-        <div class=" flex items-center gap-x-6  justify-start  md:ml-[100px] md:pt-[70px] lg:ml-[100px] lg:pt-[70px] pt-[80px] ml-[50px] pb-10">
+        <div class="pb-5 flex items-center gap-x-6  justify-start  md:ml-[100px] md:pt-[100px] md:pb-0 lg:ml-[100px] lg:pt-[100px] lg:pb-0 pt-[80px] ml-[10px] ">
                 <a class="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl  bg-gradient-to-r from-[#7CC9B1] to-[#069376] px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                     href="/institutional">Back
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -40,7 +40,7 @@ export default async function ProductsPage() {
                     </svg>
                 </a>
             </div>
-        <div className="mx-auto max-w-2xl   md:pt-10 pt-0 pb-8  ">  
+        <div className="mx-auto max-w-2xl pt-0 pb-8  ">  
           
         <div className="text-center">
            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7CC9B1] to-[#069376] sm:text-6xl">
@@ -130,7 +130,7 @@ export default async function ProductsPage() {
             </div>
           ))}
         </div>
-      </>
+      </section>
     );
   } catch (error) {
     console.error("Failed to fetch products:", error);

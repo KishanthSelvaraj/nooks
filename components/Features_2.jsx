@@ -52,7 +52,7 @@ const Features_2 = () => {
     ];
 
     return (
-        <section className="py-14">
+        <section className="py-14 bg-white">
             <div className="max-w-screen-xl mx-auto px-4 text-center text-gray-600 md:px-8">
                 <div className="max-w-2xl mx-auto">
                     <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">

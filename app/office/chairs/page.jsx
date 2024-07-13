@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { sanityFetch } from "@/sanity/lib/client"; // Ensure correct import
 
-const PRODUCT_QUERY = `*[_type == "office" && !(_id in path("drafts.*"))]{
+const PRODUCT_QUERY = `*[_type == "officechair" && !(_id in path("drafts.*"))]{
   _id, 
   name, 
   description, 
@@ -30,7 +30,7 @@ export default async function ProductsPage() {
         {/* new */}
         <div class="pb-5 flex items-center gap-x-6  justify-start  md:ml-[100px] md:pt-[100px] md:pb-0 lg:ml-[100px] lg:pt-[100px] lg:pb-0 pt-[80px] ml-[10px] ">
                 <a class="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl  bg-gradient-to-r from-[#7CC9B1] to-[#069376] px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                    href="/institutional">Back
+                    href="/office">Back
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd"
                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -42,7 +42,7 @@ export default async function ProductsPage() {
           
         <div className="text-center">
            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7CC9B1] to-[#069376] sm:text-6xl">
-           Office Furniture
+           Office Chairs
            </h1>
            <p className="mt-6 text-lg leading-8 text-gray-600 italic">
            We provides top-quality, durable institutional furniture designed for comfort, functionality, and modern aesthetics, ensuring optimal learning environments.
@@ -50,7 +50,7 @@ export default async function ProductsPage() {
            <div className="mt-10 flex items-center justify-center gap-x-6"></div>
          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-center lg:px-[150px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-center lg:px-[150px] text-center ">
           {validProducts.map((product) => (
             <div
               key={product.slug}

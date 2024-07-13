@@ -9,6 +9,7 @@ import hostal from "./schemaTypes/institutional/hostal";
 import library from "./schemaTypes/institutional/library";
 import lockers from "./schemaTypes/institutional/lockers";
 import office from "./schemaTypes/institutional/office";
+import officechair from "./schemaTypes/office/officechair";
 //office sections
 export const schema = {
   types: [
@@ -21,5 +22,6 @@ export const schema = {
     library,
     hostal,
     productcart,
+    officechair
   ],
 };

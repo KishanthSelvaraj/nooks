@@ -26,11 +26,11 @@ export default async function ProductsPage() {
     });
 
     return (
-      <>
+      <section className="bg-white">
         {/* new */}
-        <div className="mx-auto max-w-2xl pt-14 sm:pt-10 lg:pt-16 pb-8 mt-4 ">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7CC9B1] to-[#069376] sm:text-6xl">
+        <div className="mx-auto max-w-2xl pt-14 sm:pt-10 lg:pt-16 pb-8 mt-4 bg-white">
+          <div className="text-center ">
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7CC9B1] to-[#069376] sm:text-6xl ">
               Institutional Furniture
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600 italic">
@@ -41,7 +41,7 @@ export default async function ProductsPage() {
             <div className="mt-10 flex items-center justify-center gap-x-6"></div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-center lg:px-[150px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-center lg:px-[150px] bg-white">
           {validProducts.map((product) => (
             <div
               key={product.slug}
@@ -58,7 +58,7 @@ export default async function ProductsPage() {
                       <div class=" flex items-center justify-center">
                         <a
                           class=" inline-flex items-center justify-center gap-2 rounded-xl   px-4 py-3 text-lg font-semibold text-black  transition-all duration-150 "
-                          href="/gallery"
+                          href={`/institutional/${product.slug}`}
                         >
                           {product.name}
                           <svg
@@ -130,7 +130,7 @@ export default async function ProductsPage() {
             </div>
           ))}
         </div>
-      </>
+      </section>
     );
   } catch (error) {
     console.error("Failed to fetch products:", error);

@@ -62,7 +62,7 @@ const Footer = () => {
 
       
     // </footer>
-    <section class="pt-16 pb-7 ">
+    <section class="pt-16 pb-7 bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col min-[830px]:flex-row items-center justify-between gap-6 pb-10 border-b-2 border-gray-200">
       <div className="md:w-32  w-24 h-auto lg:mx-10 ">

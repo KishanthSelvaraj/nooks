@@ -42,7 +42,7 @@ TeamMemberItem.propTypes = {
 
 const Features = () => {
 	return (
-		<section className="ezy__team20 light py-14 md:py-24 bg-white dark:bg-[#06937728] text-zinc-900 dark:text-white">
+		<section className=" light py-14 md:py-24 bg-white text-zinc-900 ">
 			<div className="container px-4 mx-auto">
 				<div className="flex justify-center text-center">
 					<div className="sm:max-w-lg">

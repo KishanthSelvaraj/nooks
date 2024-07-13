@@ -42,21 +42,21 @@ const ContactForm = () => {
 			<div className="mb-4">
 				<input
 					type="text"
-					className="min-h-[48px] leading-[48px] bg-[#F2F6FD] dark:bg-[#2A384C] border border-transparent rounded-xl focus:outline-none focus:border focus:border-[#86b7fe] w-full px-5"
+					className="min-h-[48px] leading-[48px] bg-[#F2F6FD]  border border-transparent rounded-xl focus:outline-none focus:border  w-full px-5"
 					placeholder="Enter Name"
 				/>
 			</div>
 			<div className="mb-4">
 				<input
 					type="email"
-					className="min-h-[48px] leading-[48px] bg-[#F2F6FD] dark:bg-[#2A384C] border border-transparent rounded-xl focus:outline-none focus:border focus:border-[#86b7fe] w-full px-5"
+					className="min-h-[48px] leading-[48px] bg-[#F2F6FD] border border-transparent rounded-xl focus:outline-none focus:border  w-full px-5"
 					placeholder="Enter Email"
 				/>
 			</div>
 			<div className="mb-4">
 				<textarea
 					name="message"
-					className="min-h-[48px] leading-[48px] bg-[#F2F6FD] dark:bg-[#2A384C] border border-transparent rounded-xl focus:outline-none focus:border focus:border-[#86b7fe] w-full px-5"
+					className="min-h-[48px] leading-[48px] bg-[#F2F6FD]  border border-transparent rounded-xl focus:outline-none focus:border  w-full px-5"
 					placeholder="Enter Message"
 					rows="4"
 				></textarea>
@@ -74,7 +74,7 @@ const ContactForm = () => {
 };
 
 const ContactFormCard = () => (
-	<div className="bg-white dark:bg-[#162231] shadow-xl rounded-2xl p-6 md:p-12">
+	<div className="bg-white text-black shadow-xl rounded-2xl p-6 md:p-12">
 		<h2 className="text-2xl md:text-4xl leading-none font-bold mb-4">
 			Contact Us
 		</h2>
@@ -90,7 +90,7 @@ const ContactInfo = ({ contactInfoList }) => (
 	<div classNameName="mt-5 pt-md-4">
 		{contactInfoList.map((info, i) => (
 			<div
-				className="bg-gray-100 shadow dark:bg-gray-800 max-w-[350px] mt-6 flex items-center rounded-xl p-4"
+				className="bg-gray-100 shadow text-black max-w-[350px] mt-6 flex items-center rounded-xl p-4"
 				key={i}
 			>
 				<FontAwesomeIcon icon={info.icon} className="text-sm px-2" />

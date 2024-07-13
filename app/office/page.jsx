@@ -26,10 +26,10 @@ export default async function ProductsPage() {
     });
 
     return (
-      <>
+      <section className="bg-white">
      
         {/* new */}
-        <div className="mx-auto max-w-2xl pt-14 sm:pt-10 lg:pt-16 pb-8 mt-4 ">
+        <div className="mx-auto max-w-2xl pt-14 sm:pt-10 lg:pt-16 pb-8 mt-4 bg-white ">
         <div className="text-center">
            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7CC9B1] to-[#069376] sm:text-6xl">
            Office Furniture
@@ -47,7 +47,7 @@ export default async function ProductsPage() {
               className="max-w-md mx-auto rounded-md overflow-hidden  transition-transform transform hover:scale-105"
             >
               <div className="relative">
-                <Link href={`/institutional/${product.slug}`} className="block">
+                <Link href={`/office/${product.slug}`} className="block">
                   <div class="relative group transition-all duration-500 hover:bg-[#aee4d3] hover:border-[#069376] hover:border-b w-[248px] h-[318px]">
                     <img
                       class="transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:rounded-br-[80px] w-[248px] h-[248px]"
@@ -118,7 +118,7 @@ export default async function ProductsPage() {
             </div>
           ))}
         </div>
-      </>
+      </section>
     );
   } catch (error) {
     console.error("Failed to fetch products:", error);
