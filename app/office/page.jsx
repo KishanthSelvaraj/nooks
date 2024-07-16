@@ -26,7 +26,7 @@ export default async function ProductsPage() {
     });
 
     return (
-      <section className="bg-white">
+      <section className="bg-white md:pt-[100px] pt-[70px]">
      
         {/* new */}
         <div className="mx-auto max-w-2xl pt-14 sm:pt-10 lg:pt-16 pb-8 mt-4 bg-white ">
