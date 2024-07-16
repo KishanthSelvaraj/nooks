@@ -15,6 +15,6 @@ export async function sanityFetch({ query }) {
     return data;
   } catch (error) {
     console.error("Sanity fetch error:", error);
-    return null; // or throw error depending on your error handling strategy
+    return null;
   }
 }

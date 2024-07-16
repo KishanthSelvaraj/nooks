@@ -60,7 +60,7 @@ export default async function ProductsPage() {
                 <Link href={`/institutional/${product.slug}`} className="block">
                   <div class="relative group transition-all duration-500 hover:bg-[#aee4d3] hover:border-[#069376] hover:border-b w-[248px] h-[318px]">
                     <img
-                      class="transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:rounded-br-[80px] w-[248px] h-[248px]"
+                      class="transition-all duration-500  group-hover:rounded-br-[80px] w-[248px] h-[248px]"
                       src={product.images[0].asset.url}
                     />
                     <div class="transition-all duration-500 p-1 group-hover:pl-1.5 ">
